@@ -75,7 +75,7 @@ module GoogleVisualization
     # Generate the js chart data
     output = "chartData['#{id}'] = new google.visualization.DataTable();"
     table.columns.each do |col|
-      output += "chartData['#{id}'].addColumn('#{table.column_types[col]}', '#{col}');"
+      output += "chartData['#{id}'].addColumn('#{table.column_types[col]}', #{col.to_json});"
     end
     option_str = []
     options.each do |key, val|
